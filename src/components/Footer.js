@@ -7,7 +7,7 @@ const Footer = ({ isDark, setIsDark }) => {
   return (
     <div
       css={css`
-        margin: 1rem -;
+        margin: 1rem;
         display: flex;
         justify-content: center;
       `}
@@ -23,7 +23,6 @@ const Footer = ({ isDark, setIsDark }) => {
           margin-left: 15px;
           border-radius: 3px;
           cursor: pointer;
-
           &:hover {
             transform: translate(-2px);
           }
