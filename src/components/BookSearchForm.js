@@ -31,10 +31,22 @@ const Button = styled.button`
 
 const Form = styled.form``;
 
-const BookSearchForm = () => {
+const BookSearchForm = ({
+  onSubmit,
+  searchTerm,
+  onChange,
+  error
+}) => {
+
   return (
-    <Form>
-      <Input type="search" placeholder="책 이름을 검색해주세요" />
+    <Form onSubmit={onSubmit}>
+      <Input
+        type="search"
+        placeholder="책이나 저자로 검색해주세요"
+        required
+        value={searchTerm}
+        onChange={onChange}
+      />
       <Button type="submit">Search</Button>
     </Form>
   );
