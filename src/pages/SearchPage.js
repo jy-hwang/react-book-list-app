@@ -4,14 +4,20 @@ import BookSearchForm from "../components/BookSearchForm";
 import axios from "axios";
 import Loader from "../components/Loader";
 import BooksList from "../components/BooksList";
-import { Container, Header, HeaderContainer, LogoText } from "../components/Shared";
+import {
+  Container,
+  Header,
+  HeaderContainer,
+  LogoText,
+} from "../components/Shared";
+import InputTest from "../components/InputTest";
 
 const HeaderSearchForm = styled.div`
   margin-left: auto;
 `;
 
 const SearchPage = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   const [books, setBooks] = useState({});
 
@@ -27,7 +33,6 @@ const SearchPage = () => {
         `${API_BASE_URL}/v1/volumes?q=${searchTerm}`
       );
       setBooks(result.data);
-
     } catch (error) {
       console.error(error);
     }
@@ -35,11 +40,11 @@ const SearchPage = () => {
     setLoading(false);
   };
 
-  const handleCahnge = e => {
+  const handleCahnge = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     fetchBooks();
   };
@@ -50,15 +55,20 @@ const SearchPage = () => {
         <HeaderContainer>
           <LogoText>Book List</LogoText>
           <HeaderSearchForm>
-            <BookSearchForm onSubmit={handleSubmit} onChange={handleCahnge} searchTerm={searchTerm} />
+            <BookSearchForm
+              onSubmit={handleSubmit}
+              onChange={handleCahnge}
+              searchTerm={searchTerm}
+            />
           </HeaderSearchForm>
         </HeaderContainer>
       </Header>
       <Container>
-        <Loader loading={loading}>
+        {/* <Loader loading={loading}>
           "<strong>{searchTerm}</strong>" 책을 찾고 있습니다.
         </Loader>
-        <BooksList books={books} />
+        <BooksList books={books} /> */}
+        <InputTest />
       </Container>
     </>
   );
